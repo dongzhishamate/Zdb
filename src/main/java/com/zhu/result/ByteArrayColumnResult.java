@@ -21,6 +21,12 @@ public class ByteArrayColumnResult extends ColumnResult {
     this.length = length;
   }
 
+  public static void reuse(ByteArrayColumnResult byteReused, byte[] reusedByteArray, int start, int columnLength) {
+    byteReused.data = reusedByteArray;
+    byteReused.offset = start;
+    byteReused.length = columnLength;
+  }
+
   public byte getByte(int idx) {
     return data[offset + idx];
   }

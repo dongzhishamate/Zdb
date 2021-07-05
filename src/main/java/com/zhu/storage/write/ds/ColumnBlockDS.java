@@ -1,5 +1,6 @@
 package com.zhu.storage.write.ds;
 
+import com.zhu.result.ColumnResult;
 import com.zhu.serde.ZdbType;
 import com.zhu.storage.write.ds.metrics.ColumnMetrics;
 
@@ -36,11 +37,22 @@ public abstract class ColumnBlockDS {
 
   public abstract void initBuilder();
 
+  public abstract ColumnResult directGet(int rowNum);
+
   public void setColumnMetrics(ColumnMetrics cm) {
     this.cm = cm;
   }
 
   public ColumnMetrics getColumnMetrics() {
     return cm;
+  }
+
+  public int getRowNum() {
+    return rowNum;
+  }
+
+
+  public int getDicSize() {
+    return dicSize;
   }
 }

@@ -9,18 +9,23 @@ public class DataColumn {
   private int columnLength;
   private int dataSize;
   private int dataType;
+  private byte[] reusedByteArray;
 
   public DataColumn(int columnLength, int dataSize, int dataType) {
     this.columnLength = columnLength;
     this.dataSize = dataSize;
     this.dataType = dataType;
     byteReused = new ByteArrayColumnResult(null, 0, 0, -1);
+    reusedByteArray = new byte[columnLength];
   }
 
-//  public ColumnResult get(int dicNum) {
-//    byteReused = new ByteArrayColumnResult(null, 0, 0, -1);
-//
-//  }
+  public ColumnResult directGet(int dicNum) {
+    int absoluteOffset = dicNum * columnLength;
+    dataBuffer.position(absoluteOffset);
+    dataBuffer.get(reusedByteArray);
+    ByteArrayColumnResult.reuse(byteReused, reusedByteArray,0 ,columnLength);
+    return byteReused;
+  }
 
 
   public void load(ByteBuffer buffer, int length) {

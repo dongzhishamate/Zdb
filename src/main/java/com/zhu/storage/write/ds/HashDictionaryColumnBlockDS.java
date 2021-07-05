@@ -1,6 +1,7 @@
 package com.zhu.storage.write.ds;
 
 import com.zhu.result.ByteArrayColumnResult;
+import com.zhu.result.ColumnResult;
 import com.zhu.result.DataColumn;
 import com.zhu.storage.write.ds.metrics.ColumnMetrics;
 import com.zhu.utils.OptimizedBitSet;
@@ -55,6 +56,11 @@ public class HashDictionaryColumnBlockDS extends ColumnBlockDS {
     ByteArrayColumnResult columnResult = new ByteArrayColumnResult(record, 0, record.length, dataType);
     rawData.add(columnResult);
     return rawData.size() - 1;
+  }
+
+  public ColumnResult directGet(int rowNum) {
+    decode(true);
+    return loadData.directGet(rowNum);
   }
 
   public void spill(OutputStream out) throws IOException {
