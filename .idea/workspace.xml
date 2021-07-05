@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="565c3fd7-b491-48e2-9d15-01e47e916d9d" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/RowBlockDS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1169">
+              <caret line="154" column="27" lean-forward="true" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4220#4221#0" expanded="true" />
+                <element signature="e#4259#4260#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/RowBlockMetrics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/FastShortArray.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="155" column="16" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/ColumnBlockDS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/HashDictionaryColumnBlockDS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#982#983#0" expanded="true" />
+                <element signature="e#2396#2397#0" expanded="true" />
+                <element signature="e#2436#2437#0" expanded="true" />
+                <element signature="e#2727#2728#0" expanded="true" />
+                <element signature="e#2783#2784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/OptimizedBitSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/zhu/storage/write/ds/HashDictionaryColumnBlockDSTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/zhu/storage/write/RandomAccessFileOutputStreamTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>HolodeskType</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ZdbType</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/result/ColumnResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/utils/KeyType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/result/ByteArrayColumnResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/common/KeyType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/RandomAccessFileOutputStream.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/zhu/storage/write/RandomAccessFileOutputStreamTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/Segment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/SortedHashDictionaryColumnBlockDS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/factory/ColumnBlockDSFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/serde/ZdbType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/ColumnBlockDSFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/zhu/storage/write/ds/RowBlockDSTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/utils/UnsafeUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/serde/FastSerdeHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/ZdbMetrics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/ColumnMetrics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/utils/FastShortArray.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/utils/SimpleBitSet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/utils/OptimizedBitSet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyCloumnBolck.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyColumnWriter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/RadixTrieColumnBlockDS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyColumnReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoderV0.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoderV1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoderV2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyColumnBlock.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/utils/RowIndexForOffset.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/result/DataColumn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/ColumnBlockDS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/RowBlockMetrics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/RowBlockDS.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/zhu/storage/write/ds/HashDictionaryColumnBlockDSTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/HashDictionaryColumnBlockDS.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.5.4\conf\settings 之前的配置.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="577" />
+    <option name="y" value="36" />
+    <option name="width" value="1668" />
+    <option name="height" value="1033" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="read" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="ds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="ds" type="462c0819:PsiDirectoryNode" />
+              <item name="metrics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhu" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="ds" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1625489482192" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.zhu.storage.write.ds" />
+      <recent name="com.zhu.storage.write" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zhu.result" />
+      <recent name="com.zhu.utils" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.HashDictionaryColumnBlockDSTest.testDecode">
+    <configuration name="HashDictionaryColumnBlockDSTest.spill" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhu.storage.write.ds.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zhu.storage.write.ds" />
+      <option name="MAIN_CLASS_NAME" value="com.zhu.storage.write.ds.HashDictionaryColumnBlockDSTest" />
+      <option name="METHOD_NAME" value="spill" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashDictionaryColumnBlockDSTest.testDecode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhu.storage.write.ds.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zhu.storage.write.ds" />
+      <option name="MAIN_CLASS_NAME" value="com.zhu.storage.write.ds.HashDictionaryColumnBlockDSTest" />
+      <option name="METHOD_NAME" value="testDecode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomAccessFileOutputStreamTest.setRandomAccessFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhu.storage.write.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zhu.storage.write" />
+      <option name="MAIN_CLASS_NAME" value="com.zhu.storage.write.RandomAccessFileOutputStreamTest" />
+      <option name="METHOD_NAME" value="setRandomAccessFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomAccessFileOutputStreamTest.testRandomAccessFileOutputStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhu.storage.write.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zhu.storage.write" />
+      <option name="MAIN_CLASS_NAME" value="com.zhu.storage.write.RandomAccessFileOutputStreamTest" />
+      <option name="METHOD_NAME" value="testRandomAccessFileOutputStream" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RowBlockDSTest.getKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhu.storage.write.ds.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zhu.storage.write.ds" />
+      <option name="MAIN_CLASS_NAME" value="com.zhu.storage.write.ds.RowBlockDSTest" />
+      <option name="METHOD_NAME" value="getKey" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HashDictionaryColumnBlockDSTest.testDecode" />
+        <item itemvalue="JUnit.RandomAccessFileOutputStreamTest.testRandomAccessFileOutputStream" />
+        <item itemvalue="JUnit.HashDictionaryColumnBlockDSTest.spill" />
+        <item itemvalue="JUnit.RowBlockDSTest.getKey" />
+        <item itemvalue="JUnit.RandomAccessFileOutputStreamTest.setRandomAccessFile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="565c3fd7-b491-48e2-9d15-01e47e916d9d" name="Default Changelist" comment="" />
+      <created>1625317516966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625317516966</updated>
+      <workItem from="1625317526814" duration="1144000" />
+      <workItem from="1625318681213" duration="2680000" />
+      <workItem from="1625324476838" duration="2907000" />
+      <workItem from="1625358289690" duration="19645000" />
+      <workItem from="1625409808173" duration="3007000" />
+      <workItem from="1625445537969" duration="11744000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="RandomAccessFileOutputStreamTest_setRandomAccessFile - 2021.07.03 at 21h 28m 26s.xml">
+      <configuration name="RandomAccessFileOutputStreamTest.setRandomAccessFile" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RandomAccessFileOutputStreamTest_testRandomAccessFileOutputStream - 2021.07.03 at 21h 31m 59s.xml">
+      <configuration name="RandomAccessFileOutputStreamTest.testRandomAccessFileOutputStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RandomAccessFileOutputStreamTest_testRandomAccessFileOutputStream - 2021.07.03 at 21h 35m 46s.xml">
+      <configuration name="RandomAccessFileOutputStreamTest.testRandomAccessFileOutputStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashDictionaryColumnBlockDSTest_spill - 2021.07.05 at 20h 10m 24s.xml">
+      <configuration name="HashDictionaryColumnBlockDSTest.spill" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashDictionaryColumnBlockDSTest_spill - 2021.07.05 at 20h 13m 07s.xml">
+      <configuration name="HashDictionaryColumnBlockDSTest.spill" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashDictionaryColumnBlockDSTest_testDecode - 2021.07.05 at 20h 33m 06s.xml">
+      <configuration name="HashDictionaryColumnBlockDSTest.testDecode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RandomAccessFileOutputStreamTest_testRandomAccessFileOutputStream - 2021.07.05 at 20h 42m 31s.xml">
+      <configuration name="RandomAccessFileOutputStreamTest.testRandomAccessFileOutputStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashDictionaryColumnBlockDSTest_testDecode - 2021.07.05 at 20h 42m 38s.xml">
+      <configuration name="HashDictionaryColumnBlockDSTest.testDecode" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="41127000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="462" y="29" width="1334" height="826" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29490197" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26061493" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="GraphQL" order="7" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3353204" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="ConsoleMavenPlugin" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.0637037" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.20254862" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="leetcode" order="5" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/io/ByteArrayOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="135" column="17" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/io/RandomAccessFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="523" column="16" selection-start-line="523" selection-start-column="16" selection-end-line="523" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/io/OutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="74" column="30" lean-forward="true" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/common/KeyType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/DataWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/Segment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#OpenMode#0;class#Segment#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/serde.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/ColumnBlockDSFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/UnsafeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/serde/ZdbType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/RandomAccessFileOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/nio/ByteBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="508" column="31" selection-start-line="508" selection-start-column="31" selection-end-line="508" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/serde/FastSerdeHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="309" column="18" selection-start-line="309" selection-start-column="12" selection-end-line="309" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6310#6311#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#18823#18824#0" expanded="true" />
+            <element signature="e#18872#18873#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/RadixTrieColumnBlockDS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/apache-maven-3.5.4/repo/it/unimi/dsi/fastutil/6.5.7/fastutil-6.5.7.jar!/it/unimi/dsi/fastutil/io/FastByteArrayOutputStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoderV2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoderV1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#1011#1012#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoderV0.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#791#792#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/decoder/RowKeyColumnDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyColumnBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#427#428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/read/DataReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyColumnWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/column/block/RowKeyColumnReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/SimpleBitSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#set#0;class#SimpleBitSet#0" expanded="true" />
+            <element signature="docComment;method#cardinality#0;class#SimpleBitSet#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/SortedHashDictionaryColumnBlockDS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="82" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/RowIndexForOffset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/result/DataColumn.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/result/ColumnResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#185#186#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/result/ByteArrayColumnResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="431" column="13" selection-start-line="431" selection-start-column="13" selection-end-line="431" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/ZdbMetrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/RowBlockDS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1169">
+          <caret line="154" column="27" lean-forward="true" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4220#4221#0" expanded="true" />
+            <element signature="e#4259#4260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/FastShortArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="155" column="16" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/ColumnBlockDS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/ColumnMetrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/metrics/RowBlockMetrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/zhu/storage/write/ds/RowBlockDSTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/utils/OptimizedBitSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/nio/Buffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="505" selection-start-line="505" selection-end-line="505" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/jdk1.8/src.zip!/java/nio/DirectByteBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="680" selection-start-line="680" selection-end-line="680" />
+          <folding>
+            <element signature="e#15725#15726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhu/storage/write/ds/HashDictionaryColumnBlockDS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#982#983#0" expanded="true" />
+            <element signature="e#2396#2397#0" expanded="true" />
+            <element signature="e#2436#2437#0" expanded="true" />
+            <element signature="e#2727#2728#0" expanded="true" />
+            <element signature="e#2783#2784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/zhu/storage/write/RandomAccessFileOutputStreamTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/zhu/storage/write/ds/HashDictionaryColumnBlockDSTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>12 (2)</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
