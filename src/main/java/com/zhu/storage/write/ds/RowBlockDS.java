@@ -30,11 +30,11 @@ public class RowBlockDS {
   public static final int MaxRecords = 64512;
 
   //对应的column用的是什么存储
-  int[] columnBlocksType = null;
+  private int[] columnBlocksType = null;
   //对应column存储的是什么数据类型
-  int[] columnDataType = null;
+  private int[] columnDataType = null;
   //对应的column一个数据类型在ZdbType中的标号,例如如果该行对应的数据类型是int,则在DataLength对应的额就是ZdbType中对应的序号3
-  int[] columnDataLength = null;
+  private int[] columnDataLength = null;
 
   protected boolean rowBlockContainsRowKeyColumn = true;
   protected RowKeyColumnBlock rowKeyColumnBlock;
@@ -60,6 +60,7 @@ public class RowBlockDS {
     this.columnBlocksType = columnBlocksType;
     this.columnDataType = columnDataType;
     this.columnDataLength = columnDataLength;
+    this.rbm = new RowBlockMetrics();
   }
 
 
@@ -82,6 +83,7 @@ public class RowBlockDS {
     this.rowNums = 0;
     isClosed = false;
     columnBlocks = new ColumnBlockDS[colNums];
+    rowKeyColumnBlock = new RowKeyColumnBlock();
     for (int i = 0; i < colNums; i++) {
       if (columnBlocksType == null || i >= columnBlocksType.length) {
         columnBlocks[i] = new HashDictionaryColumnBlockDS();
@@ -98,7 +100,6 @@ public class RowBlockDS {
 //      for (int j = 0; j < columnBlockFilters[i].length; j++) {
 //        columnBlockFilters[i][j].initFilter();
 //      }
-      //性能统计模块暂时不支持
       ColumnMetrics cm = new ColumnMetrics();
       columnBlocks[i].setColumnMetrics(cm);
       rbm.columnMetrics.add(cm);
@@ -109,8 +110,12 @@ public class RowBlockDS {
 //    }
   }
 
-  public void put(byte[][] row, boolean containRowKey) {
+  public void put(byte[][] row) throws IOException {
+    put(row, false);
+  }
 
+  public void put(byte[][] row, boolean containRowKey) throws IOException {
+    put(row, containRowKey, false);
   }
 
   public void put(byte[][] row, boolean containRowKey, boolean isDelete) throws IOException {
@@ -167,4 +172,37 @@ public class RowBlockDS {
 //    }
 //    loadCube(buffer);
 //  }
+
+
+  public int[] getColumnBlocksType() {
+    return columnBlocksType;
+  }
+
+  public void setColumnBlocksType(int[] columnBlocksType) {
+    this.columnBlocksType = columnBlocksType;
+  }
+
+  public int[] getColumnDataType() {
+    return columnDataType;
+  }
+
+  public void setColumnDataType(int[] columnDataType) {
+    this.columnDataType = columnDataType;
+  }
+
+  public int[] getColumnDataLength() {
+    return columnDataLength;
+  }
+
+  public void setColumnDataLength(int[] columnDataLength) {
+    this.columnDataLength = columnDataLength;
+  }
+
+  public int getBlockNum() {
+    return blockNum;
+  }
+
+  public void setBlockNum(int blockNum) {
+    this.blockNum = blockNum;
+  }
 }
