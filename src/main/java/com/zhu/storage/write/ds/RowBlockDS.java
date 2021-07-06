@@ -4,8 +4,18 @@ import com.zhu.serde.FastSerdeHelper;
 import com.zhu.storage.column.block.RowKeyColumnBlock;
 import com.zhu.storage.write.ds.metrics.ColumnMetrics;
 import com.zhu.storage.write.ds.metrics.RowBlockMetrics;
+import com.zhu.utils.ByteBufferInputStream;
+import com.zhu.utils.BytesUtils;
+import com.zhu.utils.Compression;
+import com.zhu.utils.FastIntArray;
+import it.unimi.dsi.fastutil.io.FastBufferedInputStream;
+import it.unimi.dsi.fastutil.io.FastByteArrayInputStream;
+import it.unimi.dsi.fastutil.io.FastByteArrayOutputStream;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
 public class RowBlockDS {
@@ -36,6 +46,11 @@ public class RowBlockDS {
   //对应的column一个数据类型在ZdbType中的标号,例如如果该行对应的数据类型是int,则在DataLength对应的额就是ZdbType中对应的序号3
   private int[] columnDataLength = null;
 
+  /*
+   * Create for reader
+   */
+  public FastIntArray readCols = new FastIntArray();
+
   protected boolean rowBlockContainsRowKeyColumn = true;
   protected RowKeyColumnBlock rowKeyColumnBlock;
   private RowBlockMetrics rbm = null;
@@ -48,6 +63,7 @@ public class RowBlockDS {
   private int bucketId;
 
   public RowBlockDS() {
+    this.rbm = new RowBlockMetrics();
   }
 
   public RowBlockDS(int[] columnBlocksType) {
@@ -129,6 +145,7 @@ public class RowBlockDS {
         isNull = true;
         rowWithRowKey[i] = FastSerdeHelper.getNullValue(columnDataType[i], columnDataLength[i]);
       }
+      columnBlocks[i].put(rowWithRowKey[i], 0, rowWithRowKey[i].length, isNull);
       blockSize += rowWithRowKey[i].length;
     }
     // add row key
@@ -156,22 +173,189 @@ public class RowBlockDS {
     return (blockId << 16 |rowId);
   }
 
-//  public void load(ByteBuffer buffer) throws IOException {
-//    loadMetaHeadBytes(buffer);
-//    loadMetaData(buffer);
-//    columnBlocks = new ColumnBlockDS[colNums];
-//    columnBlockFilters = new BlockFilter[colNums][];
-//    if (rowNums != 0 && colNums != 0) {
+  public void spill(OutputStream out) throws IOException {
+    DataOutputStream oos = new DataOutputStream(out);
+    FastByteArrayOutputStream aos = new FastByteArrayOutputStream();
+    DataOutputStream dos = new DataOutputStream(aos);
+    blockIndex = new int[colNums];
+    if (rowNums != 0 && colNums != 0) {
+      FastByteArrayOutputStream fba = new FastByteArrayOutputStream();
+      int t = 0;
+      for (ColumnBlockDS columnBlockDS : columnBlocks) {
+        int start = aos.length;
+        OutputStream cos;
+        boolean needClose = true;
+        //判断是否开启压缩
+        if (columnBlockDS.isCompressed(compressCodec)) {
+          cos = Compression.compressOutputStream(dos, Compression.defaultBufferHint, compressCodec);
+        } else {
+          cos = dos;
+          needClose = false;
+        }
+        fba.reset();
+        fba.write(columnBlockDS.getType());
+        columnBlockDS.spill(fba);
+
+        BytesUtils.writeInt(cos, fba.length);
+        cos.write(fba.array, 0, fba.length);
+        cos.flush();
+        if (needClose) {
+          cos.close();
+        }
+        // The length after compression, use to jump block index.
+        blockIndex[t++] = aos.length - start;
+      }
+      rowKeyColumnBlock.spill(dos);
+      int blockLength = aos.length;
+      spillMetaData(oos, blockLength);
+      oos.write(aos.array, 0, aos.length);
+    }
+  }
+
+  private void spillMetaData(DataOutputStream dos, int blockLength) throws IOException {
+    dos.writeInt(encodeContainsRowKeyColumnToRowBlockLength(blockLength, true));
+    dos.writeInt(colNums);
+    dos.writeInt(rowNums);
+    dos.writeInt(blockSize);
+//    dos.writeShort(Short.MIN_VALUE);
+    dos.write(FastSerdeHelper.serIntBatch(blockIndex, colNums));
+    dos.write(FastSerdeHelper.serIntBatch(columnBlocksType, colNums));
+//    dos.write(FastSerdeHelper.serIntBatch(columnBlockVersion, colNums));
+    dos.write(FastSerdeHelper.serIntBatch(columnDataType, colNums));
+  }
+
+  private int encodeContainsRowKeyColumnToRowBlockLength(int rowBlockLength, boolean containsRowKey) {
+    if (containsRowKey)
+      return 0x80000000 | rowBlockLength;
+    else
+      return rowBlockLength;
+  }
+
+  public void load(ByteBuffer buffer) throws IOException {
+    loadMetaHeadBytes(buffer);
+    loadMetaData(buffer);
+    columnBlocks = new ColumnBlockDS[colNums];
+    if (rowNums != 0 && colNums != 0) {
+      //可以只加载需要的列，暂时还没实现
 //      boolean[] localNeedColumns = rowSetReadOptions.getLocalNeedColumns();
-//      loadFilterBuffer(buffer, false, intFilterIndex, localNeedColumns);
-//      blockPassedFilter = blockIsPassedByFilter();
-//
-//      loadColumnBlocks(buffer, blockIndex, localNeedColumns);
-//      rowKeyColumnBlock = new RowKeyColumnBlock(rowBlockContainsRowKeyColumn, buffer);
-//      rowKeyColumnBlock.decode(buffer);
-//    }
-//    loadCube(buffer);
-//  }
+      loadColumnBlocks(buffer, blockIndex);
+      rowKeyColumnBlock = new RowKeyColumnBlock(rowBlockContainsRowKeyColumn, buffer);
+      rowKeyColumnBlock.decode(buffer);
+    }
+  }
+
+  private void loadColumnBlocks(ByteBuffer buffer, int[] blockIndex) throws IOException {
+    for (int i = 0; i < columnBlocks.length; i++) {
+      //当前columnBlock对应的大小
+      int len = blockIndex[i];
+      //该columnBlocks剩下还有多少byte没有被访问，被用于后面跳过这些空间
+      int colLength;
+      ByteBuffer cbBuffer;
+      if (compressCodec == 0) {
+        colLength = len - 4;
+        //跳过block的长度
+        buffer.position(buffer.position() + 4);
+        cbBuffer = buffer;
+      } else {
+        //compressed
+        InputStream is = Compression.compressInputStream(new ByteBufferInputStream(buffer.slice()), compressCodec);
+        int contentLength = BytesUtils.readInt(is);
+        byte[] b = new byte[contentLength];
+        int idx = 0;
+        while (idx < contentLength) {
+          idx += is.read(b, idx, b.length - idx);
+        }
+        cbBuffer = ByteBuffer.wrap(b);
+        colLength = contentLength;
+        buffer.position(buffer.position() + len);
+        is.close();
+      }
+      //获取第i列column的存储类型
+      int type = getColumnType(cbBuffer, i);
+      ColumnBlockDS columnBlockDS = ColumnBlockDSFactory.createCBDInstance(type, columnDataType[i], false);
+      ColumnMetrics metrics = new ColumnMetrics();
+      columnBlockDS.setColumnMetrics(metrics);
+
+      columnBlockDS.load(cbBuffer, colLength - 1);
+      columnBlockDS.setRowNum(rowNums);
+      columnBlocks[i] = columnBlockDS;
+      columnBlocks[i].setColumnIndex(i);
+      columnBlocks[i].setDataType(columnDataType[i]);
+      readCols.add(i);
+    }
+  }
+
+  private void loadColumnBlocks1(ByteBuffer buffer, int[] blockIndex) throws IOException {
+    for (int i = 0; i < columnBlocks.length; i++) {
+      ByteBuffer cbBuffer;
+      //跳过block的长度
+      buffer.position(buffer.position() + 4);
+      //获取第i列column的存储类型
+      int type = columnBlocksType[i];
+      buffer.position(buffer.position() + 1);
+      cbBuffer = buffer;
+      ColumnBlockDS columnBlockDS = ColumnBlockDSFactory.createCBDInstance(type, columnDataType[i], false);
+      ColumnMetrics metrics = new ColumnMetrics();
+      columnBlockDS.setColumnMetrics(metrics);
+
+      columnBlockDS.load(cbBuffer,  0);
+      columnBlockDS.setRowNum(rowNums);
+      columnBlocks[i] = columnBlockDS;
+      columnBlocks[i].setColumnIndex(i);
+      columnBlocks[i].setDataType(columnDataType[i]);
+      readCols.add(i);
+    }
+  }
+
+  private int getColumnType(ByteBuffer buffer, int columnIndex) {
+    buffer.position(buffer.position() + 1);
+    return columnBlocksType[columnIndex];
+  }
+
+  private void loadMetaData(ByteBuffer buffer) {
+    loadMetaTailBytes(buffer);
+    loadBlockIndex(buffer);
+    loadColumnBlockType(buffer);
+//    loadColumnBlockVersion(buffer);
+    loadColumnDataType(buffer);
+    readCols.clear();
+  }
+
+  private void loadColumnDataType(ByteBuffer buffer) {
+    columnDataType = FastSerdeHelper.deIntBatch(buffer, buffer.position(), colNums);
+    buffer.position(buffer.position() + (colNums << FastSerdeHelper.IntShiftSize));
+  }
+
+  private void loadColumnBlockType(ByteBuffer buffer) {
+    columnBlocksType = FastSerdeHelper.deIntBatch(buffer, buffer.position(), colNums);
+    buffer.position(buffer.position() + (colNums << FastSerdeHelper.IntShiftSize));
+  }
+
+  private void loadBlockIndex(ByteBuffer buffer) {
+    blockIndex = FastSerdeHelper.deIntBatch(buffer, buffer.position(), colNums);
+    buffer.position(buffer.position() + (colNums << FastSerdeHelper.IntShiftSize));
+  }
+
+
+  private void loadMetaTailBytes(ByteBuffer buffer) {
+    byte[] tailBytes = new byte[4 + 4];
+    buffer.get(tailBytes);
+    rowNums = BytesUtils.decodeIntFromBytesArray(tailBytes, 0);
+    blockSize = BytesUtils.decodeIntFromBytesArray(tailBytes, 4);
+  }
+
+  private void loadMetaHeadBytes(ByteBuffer buffer) {
+    byte[] headBytes = new byte[4 + 4];
+    buffer.get(headBytes);
+    rowBlockContainsRowKeyColumn = decodeContainsRowKeyFromRowBlockLength(
+            BytesUtils.decodeIntFromBytesArray(headBytes, 0)
+    );
+    colNums = BytesUtils.decodeIntFromBytesArray(headBytes, 4);
+  }
+
+  private boolean decodeContainsRowKeyFromRowBlockLength(int rowBlockLength) {
+    return (rowBlockLength >>> 31) == 1;
+  }
 
 
   public int[] getColumnBlocksType() {

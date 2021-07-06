@@ -1,15 +1,18 @@
 package com.zhu.storage.write.ds;
 
+import com.zhu.result.ByteArrayColumnResult;
 import com.zhu.serde.FastSerdeHelper;
 import com.zhu.serde.ZdbType;
+import com.zhu.storage.write.RandomAccessFileOutputStream;
+import com.zhu.utils.BytesUtils;
 import org.junit.Test;
 
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.Random;
-
-import static org.junit.Assert.*;
 
 public class RowBlockDSTest {
 
@@ -39,10 +42,48 @@ public class RowBlockDSTest {
     genRows(ds);
   }
 
+  @Test
+  public void testSpill() throws IOException {
+    int[] columnBlocksType = new int[2];
+    int[] columnDataType = new int[2];
+    int[] columnDataLength = new int[2];
+    columnBlocksType[0] = 1;
+    columnBlocksType[1] = 1;
+    columnDataType[0] = ZdbType.INT;
+    columnDataType[1] = ZdbType.INT;
+    columnDataLength[0] = 4;
+    columnDataLength[1] = 4;
+    RowBlockDS ds = new RowBlockDS(columnBlocksType, columnDataType, columnDataLength);
+    ds.initBuilder(2);
+    ds.setBlockNum(0);
+    genRows(ds);
+    File file = new File("text.txt");
+    file.delete();
+    BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(file, true));
+    ds.spill(out);
+    out.flush();
+
+  }
+
+  @Test
+  public void testLoad() throws IOException {
+    File file = new File("text.txt");
+    long length = file.length();
+    System.out.println(length);
+    MappedByteBuffer buffer = new RandomAccessFile(file, "rw")
+            .getChannel().map(FileChannel.MapMode.READ_ONLY, 0, length);
+    RowBlockDS ds = new RowBlockDS();
+    ds.initBuilder(2);
+    ds.load(buffer);
+    ByteArrayColumnResult columnResult = (ByteArrayColumnResult) ds.columnBlocks[1].directGet(2);
+    System.out.println(BytesUtils.decodeIntFromBytesArray(columnResult.getData(), 0));
+  }
+
   private void genRows(RowBlockDS ds) throws IOException {
     int[] columnDataTypes = ds.getColumnDataType();
     int columnNum = columnDataTypes.length;
-    int rowNum = 100 + random.nextInt(10);
+    int rowNum = random.nextInt(10);
+    System.out.println(rowNum);
     for (int r = 0; r < rowNum; r++) {
       byte[][] row = new byte[columnNum][];
       for (int i = 0; i < columnNum; i++) {
@@ -73,6 +114,7 @@ public class RowBlockDSTest {
             break;
           case ZdbType.INT:
             int in = genInt();
+            System.out.println(in);
             if (!shouldBeNull()) {
               row[i] = FastSerdeHelper.serIntBatch(new int[]{in}, 1);
             } else {

@@ -37,6 +37,15 @@ public class RowKeyColumnReader {
     deCompressRowKeyColumn(rowKeyColumnLength - FastSerdeHelper.IntSize);
   }
 
+  public void decode(ByteBuffer dataBuffer) {
+    if (rowBlockContainsRowKeyColumn) {
+      buffer = dataBuffer.slice();
+      rowKeyColumnLength = FastSerdeHelper.deInt(buffer, 0);
+      buffer.position(buffer.position() + 4);
+      dataBuffer.position(dataBuffer.position() + 4 + rowKeyColumnLength);
+    }
+  }
+
   private void deCompressRowKeyColumn(int dataLength) {
     RowKeyColumnDecoder decoder;
     if (rowKeyVersion == RowKeyVersion.V0) {

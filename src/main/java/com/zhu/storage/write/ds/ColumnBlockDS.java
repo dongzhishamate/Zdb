@@ -4,10 +4,13 @@ import com.zhu.result.ColumnResult;
 import com.zhu.serde.ZdbType;
 import com.zhu.storage.write.ds.metrics.ColumnMetrics;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
 public abstract class ColumnBlockDS {
 
+  //load后的内存直接映射
   ByteBuffer dataBuffer;
 
   protected int rowNum = 0;
@@ -35,9 +38,24 @@ public abstract class ColumnBlockDS {
     this.columnIndex = columnIndex;
   }
 
+  public void load(ByteBuffer buffer, int len) {
+    dataBuffer = buffer.slice();
+    buffer.position(buffer.position() + len);
+  }
+
+  public void setRowNum(int rowNum) {
+    this.rowNum = rowNum;
+  }
+
   public abstract void initBuilder();
 
   public abstract ColumnResult directGet(int rowNum);
+
+  public abstract int getType();
+
+  public abstract void spill(OutputStream out) throws IOException;
+
+  public abstract int put(byte[] record, int start, int length, boolean isNull) throws IOException;
 
   public void setColumnMetrics(ColumnMetrics cm) {
     this.cm = cm;
@@ -54,5 +72,9 @@ public abstract class ColumnBlockDS {
 
   public int getDicSize() {
     return dicSize;
+  }
+
+  public boolean isCompressed(int compressCodec) {
+    return compressCodec > 0;
   }
 }

@@ -21,7 +21,6 @@ public class HashDictionaryColumnBlockDS extends ColumnBlockDS {
   OptimizedBitSet nullValuePosition;
   //记录列中数据类型不同情况下每个值的偏移量
   RowIndexForOffset rowOffset;
-  ByteBuffer dataBuffer;
   int recordLength = -1;
   protected DataColumn loadData = null;
 
@@ -31,6 +30,11 @@ public class HashDictionaryColumnBlockDS extends ColumnBlockDS {
     rows = new ArrayList<>();
     nullValuePosition = new OptimizedBitSet();
     cm = new ColumnMetrics();
+  }
+
+  @Override
+  public int getType() {
+    return ColumnBlockDSFactory.ColumnBlockType.HashDict.ordinal();
   }
 
   public int put(byte[] record, int start, int length) {
@@ -88,10 +92,6 @@ public class HashDictionaryColumnBlockDS extends ColumnBlockDS {
     dic.close();
   }
 
-  public void load(ByteBuffer buffer, int len) {
-    dataBuffer = buffer.slice();
-    buffer.position(buffer.position() + len);
-  }
 
   public void decode(boolean copyToHead) {
     decodeColumn(null, copyToHead);
