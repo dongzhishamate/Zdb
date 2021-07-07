@@ -79,6 +79,15 @@ public class RowBlockDS {
     this.rbm = new RowBlockMetrics();
   }
 
+  public RowBlockDS(int[] columnBlocksType,
+                    int[] columnDataType,
+                    int[] columnDataLength,
+                    RowBlockMetrics rbm) {
+    this.columnBlocksType = columnBlocksType;
+    this.columnDataType = columnDataType;
+    this.columnDataLength = columnDataLength;
+    this.rbm = rbm;
+  }
 
 
   public void setBucketId(int bucketId) {
@@ -388,5 +397,52 @@ public class RowBlockDS {
 
   public void setBlockNum(int blockNum) {
     this.blockNum = blockNum;
+  }
+
+  public boolean isFull() {
+    return (blockSize >= maxBlockSize || rowNums >= MaxRecords);
+  }
+
+  public void close() {
+    isClosed = true;
+    for (ColumnBlockDS block : columnBlocks) {
+      if (block != null) {
+        block.close();
+      }
+    }
+  }
+
+  public void setRowBlockMetrics(RowBlockMetrics rbm) {
+    this.rbm = rbm;
+  }
+
+  public void reuse() {
+    rowNums = 0;
+    blockSize = 0;
+    isClosed = false;
+    for (int i = 0; i < colNums; i++) {
+      if (columnBlocks[i].canReuse()) {
+        columnBlocks[i].reuse();
+      } else {
+        if (columnBlocksType == null || i >= columnBlocksType.length) {
+          columnBlocks[i] = new HashDictionaryColumnBlockDS();
+        } else {
+          columnBlocks[i] = ColumnBlockDSFactory.createCBDInstance(columnBlocksType[i], columnDataType[i], false);
+        }
+        columnBlocks[i].initBuilder();
+        ColumnMetrics cm = new ColumnMetrics();
+        columnBlocks[i].setColumnMetrics(cm);
+        rbm.columnMetrics.add(cm);
+      }
+      rowKeyColumnBlock.reuse();
+    }
+  }
+
+  public void setCompressCodec(int compressCodec) {
+    this.compressCodec = compressCodec;
+  }
+
+  public boolean isClosed() {
+    return isClosed;
   }
 }

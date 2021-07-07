@@ -38,4 +38,7 @@ public class RowKeyColumnBlock {
     rowKeyColumnWriter.spill(dataOutputStream);
   }
 
+  public void reuse() {
+    rowKeyColumnWriter.reuse();
+  }
 }

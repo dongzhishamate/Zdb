@@ -15,7 +15,7 @@ public abstract class ColumnBlockDS {
 
   protected int rowNum = 0;
   protected int dicSize = 0;
-
+  boolean isClosed = false;
   protected int dataType = ZdbType.OTHER;
 
   protected int columnIndex = -1;
@@ -76,5 +76,18 @@ public abstract class ColumnBlockDS {
 
   public boolean isCompressed(int compressCodec) {
     return compressCodec > 0;
+  }
+
+  public void close() {
+    isClosed = true;
+  }
+
+  // Reuse column block
+  public boolean canReuse() {
+    return false;
+  }
+
+  public void reuse() {
+    isClosed = false;
   }
 }
